@@ -24,7 +24,6 @@ final class ViewController: UIViewController {
         setupRedSlider()
         setupGreenSlider()
         setupBlueSlider()
-        setColorView()
         redSliderAction()
         greenSliderAction()
         blueSliderAction()
