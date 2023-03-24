@@ -66,7 +66,11 @@ final class ViewController: UIViewController {
         blueSlider.minimumTrackTintColor = .blue
     }
     private func setColorView() {
-        mainColorView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        mainColorView.backgroundColor = UIColor(
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value), alpha: 1
+        )
     }
     
 }
