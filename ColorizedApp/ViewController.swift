@@ -21,49 +21,26 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupRedSlider()
-        setupGreenSlider()
-        setupBlueSlider()
-        redSliderAction()
-        greenSliderAction()
-        blueSliderAction()
         mainColorView.layer.cornerRadius = 25
-    }
-
-    @IBAction func redSliderAction() {
-        redColorLabel.text = String(format: "%.2f", redSlider.value)
         setColorView()
-    }
-
-    @IBAction func greenSliderAction() {
-        greenColorLabel.text = String(format: "%.2f", greenSlider.value)
-        setColorView()
-
+        
+        redColorLabel.text = string(from: redSlider)
+        greenColorLabel.text = string(from: greenSlider)
+        blueColorLabel.text = string(from: blueSlider)
     }
     
-    @IBAction func blueSliderAction() {
-        blueColorLabel.text = String(format: "%.2f", blueSlider.value)
+    @IBAction func sliderAction(_ sender: UISlider) {
         setColorView()
+        switch sender {
+        case redSlider:
+            redColorLabel.text = string(from: redSlider)
+        case greenSlider:
+            greenColorLabel.text = string(from: greenSlider)
+        default:
+            blueColorLabel.text = string(from: blueSlider)
+        }
     }
     
-    private func setupRedSlider() {
-        redSlider.value = 0.5
-        redSlider.minimumValue = 0.00
-        redSlider.maximumValue = 1.00
-        redSlider.minimumTrackTintColor = .red
-    }
-    private func setupGreenSlider() {
-        greenSlider.value = 0.5
-        greenSlider.minimumValue = 0.00
-        greenSlider.maximumValue = 1.00
-        greenSlider.minimumTrackTintColor = .green
-    }
-    private func setupBlueSlider() {
-        blueSlider.value = 0.5
-        blueSlider.minimumValue = 0.00
-        blueSlider.maximumValue = 1.00
-        blueSlider.minimumTrackTintColor = .blue
-    }
     private func setColorView() {
         mainColorView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
@@ -72,5 +49,8 @@ final class ViewController: UIViewController {
         )
     }
     
+    private func string(from slider: UISlider) -> String {
+        String(format: "%.2f", slider.value)
+    }
 }
 
