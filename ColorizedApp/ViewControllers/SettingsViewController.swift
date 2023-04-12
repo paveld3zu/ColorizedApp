@@ -19,9 +19,9 @@ final class SettingsViewController: UIViewController {
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
     
-    var color: UIColor!
-    
     unowned var delegate: SettingsViewControllerDelegate!
+    
+    var color: UIColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
